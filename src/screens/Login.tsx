@@ -33,9 +33,9 @@ const LoginForm = () => {
     mode: 'all',
     resolver: zodResolver(LoginFormSchema),
   });
-  console.log(errors)
+  // console.log(errors)
   const onSubmit = (data: LoginFormData) => {
-    console.log('submit')
+    // console.log('submit')
     const succeed = changeProfile({ username: data.username, password: data.password, id: 0, active: true })
     setResponse(succeed)
     if (succeed.success) navigate('/profiles')

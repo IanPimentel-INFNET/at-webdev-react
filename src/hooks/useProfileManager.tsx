@@ -12,7 +12,7 @@ const useProfileManager = () => {
     const [profile, _setProfile] = useState<ProfileType>()
     const [profileIndex, _setProfileIndex] = useState(-1)
 
-    console.log(profileIndex)
+    // console.log(profileIndex)
 
     useEffect(() => {
         _setProfiles(getProfiles())
@@ -26,7 +26,7 @@ const useProfileManager = () => {
         function UnloadListener(event: BeforeUnloadEvent) {
             event.preventDefault();
             const profilesTemp = getProfiles()
-            console.log(profileIndex, profilesTemp[profileIndex])
+            // console.log(profileIndex, profilesTemp[profileIndex])
             profileIndex !== -1 && (profilesTemp[profileIndex].active = false)
             localStorage.setItem('profiles', JSON.stringify( profilesTemp ))
             logout()
@@ -69,7 +69,7 @@ const useProfileManager = () => {
     }
 
     function updateProfile(profileData: ProfileType) {
-        console.log('update')
+        // console.log('update')
 
         const index = profiles.findIndex((profile) => { return profile.id === profileData.id })
 
@@ -84,7 +84,7 @@ const useProfileManager = () => {
     }
 
     function logout() {
-        console.log('logout')
+        // console.log('logout')
         if (profile) updateProfile({ ...profile, active: false })
         _setProfile(undefined)
     }

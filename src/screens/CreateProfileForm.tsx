@@ -44,7 +44,7 @@ const CreateProfileForm = () => {
   const username = watch('username', '')
 
   const onSubmit = (data: createProfileFormData) => {
-    console.log(data)
+    // console.log(data)
     addProfile({ id: 0, username: data.username, password: data.password, descricao: data.descricao, profileImg: data.image_uri,active: false })
     navigate("/profiles")
   };
